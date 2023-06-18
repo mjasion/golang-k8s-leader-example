@@ -4,7 +4,7 @@ metadata:
   name: getting-started-kustomize
 build:
   artifacts:
-    - image: ghcr.io/iterative/studio-selfhosted
+    - image: ghcr.io/mjasion/golang-k8s-leader-example
       context: .
       runtimeType: go
       docker:

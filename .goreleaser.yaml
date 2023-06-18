@@ -78,7 +78,7 @@ dockers:
     build_flag_templates:
       - "--platform=linux/arm/v7"
 docker_manifests:
-  - name_template: ghcr.io/iterative/studio-selfhosted:{{ .Version }}
+  - name_template: ghcr.io/mjasion/golang-k8s-leader-example:{{ .Version }}
     image_templates:
       - ghcr.io/mjasion/golang-k8s-leader-example:{{ .Version }}-amd64
       - ghcr.io/mjasion/golang-k8s-leader-example:{{ .Version }}-arm64v8

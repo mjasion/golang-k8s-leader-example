@@ -21,7 +21,7 @@ spec:
       serviceAccountName: k8s-leader-example
       containers:
         - name: k8s-leader-example
-          image: ghcr.io/iterative/studio-selfhosted:main
+          image: ghcr.io/mjasion/golang-k8s-leader-example:main
           ports:
             - containerPort: 8080
           envFrom:
