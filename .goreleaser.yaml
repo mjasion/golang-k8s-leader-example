@@ -1,0 +1,118 @@
+# This is an example .goreleaser.yml file with some sensible defaults.
+# Make sure to check the documentation at https://goreleaser.com
+before:
+  hooks:
+    # You may remove this if you don't use go modules.
+    - go mod tidy
+    # you may remove this if you don't need go generate
+    - go generate ./...
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm
+      - arm64
+    goarm:
+      - 6
+      - 7
+    id: k8s-leader-example
+    binary: k8s-leader-example
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+release:
+  github:
+  prerelease: auto
+
+
+dockers:
+  - use: buildx
+    dockerfile: goreleaser.dockerfile
+    ids:
+      - k8s-leader-example
+    goos: linux
+    goarch: amd64
+    image_templates:
+      - "ghcr.io/mjasion/golang-k8s-leader-example:{{ .Version }}-amd64"
+      - "ghcr.io/mjasion/golang-k8s-leader-example:latest-amd64"
+    build_flag_templates:
+      - "--platform=linux/amd64"
+  - use: buildx
+    dockerfile: goreleaser.dockerfile
+    ids:
+      - k8s-leader-example
+    goos: linux
+    goarch: arm64
+    image_templates:
+      - "ghcr.io/mjasion/golang-k8s-leader-example:{{ .Version }}-arm64v8"
+      - "ghcr.io/mjasion/golang-k8s-leader-example:latest-arm64v8"
+    build_flag_templates:
+      - "--platform=linux/arm64/v8"
+  - use: buildx
+    dockerfile: goreleaser.dockerfile
+    ids:
+      - k8s-leader-example
+    goos: linux
+    goarch: arm
+    goarm: 6
+    image_templates:
+      - "ghcr.io/mjasion/golang-k8s-leader-example:{{ .Version }}-armv6"
+      - "ghcr.io/mjasion/golang-k8s-leader-example:latest-armv6"
+    build_flag_templates:
+      - "--platform=linux/arm/v6"
+  - use: buildx
+    dockerfile: goreleaser.dockerfile
+    ids:
+      - k8s-leader-example
+    goos: linux
+    goarch: arm
+    goarm: 7
+    image_templates:
+      - "ghcr.io/mjasion/golang-k8s-leader-example:{{ .Version }}-armv7"
+      - "ghcr.io/mjasion/golang-k8s-leader-example:latest-armv7"
+    build_flag_templates:
+      - "--platform=linux/arm/v7"
+docker_manifests:
+  - name_template: ghcr.io/iterative/studio-selfhosted:{{ .Version }}
+    image_templates:
+      - ghcr.io/mjasion/golang-k8s-leader-example:{{ .Version }}-amd64
+      - ghcr.io/mjasion/golang-k8s-leader-example:{{ .Version }}-arm64v8
+      - ghcr.io/mjasion/golang-k8s-leader-example:{{ .Version }}-armv6
+      - ghcr.io/mjasion/golang-k8s-leader-example:{{ .Version }}-armv7
+  - name_template: ghcr.io/mjasion/golang-k8s-leader-example:latest
+    image_templates:
+      - ghcr.io/mjasion/golang-k8s-leader-example:latest-amd64
+      - ghcr.io/mjasion/golang-k8s-leader-example:latest-arm64v8
+      - ghcr.io/mjasion/golang-k8s-leader-example:latest-armv6
+      - ghcr.io/mjasion/golang-k8s-leader-example:latest-armv7
+
+archives:
+  - format: tar.gz
+    # this name template makes the OS and Arch compatible with the results of uname.
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
+    # use zip for windows archives
+    format_overrides:
+    - goos: windows
+      format: zip
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+
+# The lines beneath this are called `modelines`. See `:help modeline`
+# Feel free to remove those if you don't want/use them.
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+# vim: set ts=2 sw=2 tw=0 fo=cnqoj

@@ -6,3 +6,9 @@ resources:
   - rbac.yaml
   - service.yaml
   - serviceaccount.yaml
+configMapGenerator:
+  - name: k8s-leader-example
+    literals:
+      - LEASE_DURATION=30
+      - RENEWAL_DEADLINE=10
+      - RETRY_PERIOD=10

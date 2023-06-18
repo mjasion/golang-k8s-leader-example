@@ -5,7 +5,7 @@ metadata:
   labels:
     app:  k8s-leader-example
 spec:
-  replicas: 5
+  replicas: 1
   strategy:
     rollingUpdate:
         maxSurge: 100%
@@ -24,3 +24,6 @@ spec:
           image: ghcr.io/iterative/studio-selfhosted:main
           ports:
             - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: k8s-leader-example

@@ -3,6 +3,7 @@ module github.com/mjasion/golang-k8s-leader-example
 go 1.20
 
 require (
+	github.com/caitlinelfring/go-env-default v1.1.0
 	github.com/gin-gonic/gin v1.9.1
 	k8s.io/api v0.27.3
 	k8s.io/apimachinery v0.27.3

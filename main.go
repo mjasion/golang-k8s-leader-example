@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"github.com/caitlinelfring/go-env-default"
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/leaderelection/resourcelock"
 	"log"
@@ -27,6 +28,11 @@ const (
 )
 
 func main() {
+
+	leaseDuration := env.GetIntDefault("LEASE_DURATION", 15)
+	renewalDeadline := env.GetInt64Default("RENEWAL_DEADLINE", 10)
+	retryPeriod := env.GetIntDefault("RETRY_PERIOD", 5)
+
 	clientset := getKubeConfig()
 	updatePodLabel(clientset)
 	// Create the lease object for leader election
@@ -36,13 +42,13 @@ func main() {
 			Namespace: leaseNamespace,
 		},
 		Spec: coordv1.LeaseSpec{
-			LeaseDurationSeconds: pointerToInt32(10),
+			LeaseDurationSeconds: pointerToInt32(leaseDuration),
 			HolderIdentity:       pointerToString(os.Getenv("HOSTNAME")),
 		},
 	}
 
-	// Create a leaderElectionConfig for leader election
 	leaderElectionConfig := leaderelection.LeaderElectionConfig{
+		// Create a leaderElectionConfig for leader election
 		Lock: &resourcelock.LeaseLock{
 			LeaseMeta: metav1.ObjectMeta{
 				Name:      lockName,
@@ -53,9 +59,9 @@ func main() {
 				Identity: os.Getenv("HOSTNAME"),
 			},
 		},
-		LeaseDuration: time.Duration(15) * time.Second,
-		RenewDeadline: time.Duration(10) * time.Second,
-		RetryPeriod:   time.Duration(5) * time.Second,
+		LeaseDuration: time.Duration(leaseDuration) * time.Second,
+		RenewDeadline: time.Duration(renewalDeadline) * time.Second,
+		RetryPeriod:   time.Duration(retryPeriod) * time.Second,
 		Callbacks: leaderelection.LeaderCallbacks{
 			OnStartedLeading: onStartedLeading,
 			OnStoppedLeading: onStoppedLeading,
@@ -169,8 +175,9 @@ func onStoppedLeading() {
 	log.Println("Stopped being leader")
 }
 
-func pointerToInt32(i int32) *int32 {
-	return &i
+func pointerToInt32(i int) *int32 {
+	i32 := int32(i)
+	return &i32
 }
 
 func pointerToString(s string) *string {
