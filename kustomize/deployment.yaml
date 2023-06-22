@@ -5,7 +5,7 @@ metadata:
   labels:
     app:  k8s-leader-example
 spec:
-  replicas: 1
+  replicas: 2
   strategy:
     rollingUpdate:
         maxSurge: 100%
@@ -21,7 +21,7 @@ spec:
       serviceAccountName: k8s-leader-example
       containers:
         - name: k8s-leader-example
-          image: ghcr.io/mjasion/golang-k8s-leader-example:main
+          image: ghcr.io/mjasion/golang-k8s-leader-example:latest
           ports:
             - containerPort: 8080
           envFrom:

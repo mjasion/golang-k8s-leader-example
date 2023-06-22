@@ -11,7 +11,6 @@ import (
 	"sync"
 	"time"
 
-	coordv1 "k8s.io/api/coordination/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/leaderelection"
@@ -28,24 +27,12 @@ const (
 )
 
 func main() {
-
 	leaseDuration := env.GetIntDefault("LEASE_DURATION", 15)
 	renewalDeadline := env.GetInt64Default("RENEWAL_DEADLINE", 10)
 	retryPeriod := env.GetIntDefault("RETRY_PERIOD", 5)
 
 	clientset := getKubeConfig()
 	updatePodLabel(clientset)
-	// Create the lease object for leader election
-	lease := &coordv1.Lease{
-		ObjectMeta: metav1.ObjectMeta{
-			Name:      leaseName,
-			Namespace: leaseNamespace,
-		},
-		Spec: coordv1.LeaseSpec{
-			LeaseDurationSeconds: pointerToInt32(leaseDuration),
-			HolderIdentity:       pointerToString(os.Getenv("HOSTNAME")),
-		},
-	}
 
 	leaderElectionConfig := leaderelection.LeaderElectionConfig{
 		// Create a leaderElectionConfig for leader election
@@ -68,8 +55,6 @@ func main() {
 		},
 		ReleaseOnCancel: true,
 	}
-
-	log.Println(lease.Spec.HolderIdentity)
 
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
@@ -97,7 +82,6 @@ func main() {
 }
 
 func updatePodLabel(clientset *kubernetes.Clientset) {
-
 	// Retrieve the pod
 	hostname := os.Getenv("HOSTNAME")
 	pod, err := clientset.CoreV1().Pods(metav1.NamespaceDefault).Get(context.TODO(), hostname, metav1.GetOptions{})
@@ -120,22 +104,9 @@ func updatePodLabel(clientset *kubernetes.Clientset) {
 	log.Printf("Updated pod label: %s\n", updatedPod.Labels["pod"])
 }
 
-func getKubeConfig() *kubernetes.Clientset {
-	// Create a Kubernetes client using the current context
-	config, err := rest.InClusterConfig()
-	if err != nil {
-		log.Fatal(err)
-	}
-	clientset, err := kubernetes.NewForConfig(config)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return clientset
-}
-
 func onStartedLeading(ctx context.Context) {
-	log.Println("Became leader")
-	updateService()
+	log.Println("Became leader: ", os.Getenv("HOSTNAME"))
+	updateServiceSelectorToCurrentPod()
 	go func() {
 		for {
 			select {
@@ -151,7 +122,7 @@ func onStartedLeading(ctx context.Context) {
 	}()
 }
 
-func updateService() {
+func updateServiceSelectorToCurrentPod() {
 	clientset := getKubeConfig()
 	service, err := clientset.CoreV1().Services(leaseNamespace).Get(context.TODO(), leaseName, metav1.GetOptions{})
 	if err != nil {
@@ -171,15 +142,19 @@ func updateService() {
 	log.Printf("Updated Service: %s\n", updatedService.Name)
 }
 
+func getKubeConfig() *kubernetes.Clientset {
+	// Create a Kubernetes client using the current context
+	config, err := rest.InClusterConfig()
+	if err != nil {
+		log.Fatal(err)
+	}
+	clientset, err := kubernetes.NewForConfig(config)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return clientset
+}
+
 func onStoppedLeading() {
 	log.Println("Stopped being leader")
-}
-
-func pointerToInt32(i int) *int32 {
-	i32 := int32(i)
-	return &i32
-}
-
-func pointerToString(s string) *string {
-	return &s
 }
