@@ -28,6 +28,16 @@ snapshot:
 release:
   github:
   prerelease: auto
+  footer: |
+    ## Docker Images
+    
+    ```bash
+    docker pull ghcr.io/mjasion/golang-k8s-leader-example:{{ .Version }} # Generic
+    docker pull ghcr.io/mjasion/golang-k8s-leader-example:{{ .Version }}-amd64
+    docker pull ghcr.io/mjasion/golang-k8s-leader-example:{{ .Version }}-arm64v8
+    docker pull ghcr.io/mjasion/golang-k8s-leader-example:{{ .Version }}-armv6
+    docker pull ghcr.io/mjasion/golang-k8s-leader-example:{{ .Version }}-armv7
+    ```
 
 
 dockers:
@@ -111,8 +121,3 @@ changelog:
     exclude:
       - '^docs:'
       - '^test:'
-
-# The lines beneath this are called `modelines`. See `:help modeline`
-# Feel free to remove those if you don't want/use them.
-# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
-# vim: set ts=2 sw=2 tw=0 fo=cnqoj
