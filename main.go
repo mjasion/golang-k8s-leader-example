@@ -69,11 +69,7 @@ func main() {
 		leaderelection.RunOrDie(ctx, leaderElectionConfig)
 	}()
 	r := gin.Default()
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"hostname": os.Getenv("HOSTNAME"),
-		})
-	})
+	r.GET("/", rootPage())
 	r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 
 	cancel()
@@ -81,7 +77,15 @@ func main() {
 	wg.Wait()
 }
 
-func updatePodLabel(clientset *kubernetes.Clientset) {
+func rootPage() func(c *gin.Context) {
+	return func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"hostname": os.Getenv("HOSTNAME"),
+		})
+	}
+}
+
+func updatePodLabel(clientset kubernetes.Interface) {
 	// Retrieve the pod
 	hostname := os.Getenv("HOSTNAME")
 	pod, err := clientset.CoreV1().Pods(metav1.NamespaceDefault).Get(context.TODO(), hostname, metav1.GetOptions{})
@@ -106,7 +110,8 @@ func updatePodLabel(clientset *kubernetes.Clientset) {
 
 func onStartedLeading(ctx context.Context) {
 	log.Println("Became leader: ", os.Getenv("HOSTNAME"))
-	updateServiceSelectorToCurrentPod()
+	clientset := getKubeConfig()
+	updateServiceSelectorToCurrentPod(clientset)
 	go func() {
 		for {
 			select {
@@ -122,8 +127,7 @@ func onStartedLeading(ctx context.Context) {
 	}()
 }
 
-func updateServiceSelectorToCurrentPod() {
-	clientset := getKubeConfig()
+func updateServiceSelectorToCurrentPod(clientset kubernetes.Interface) {
 	service, err := clientset.CoreV1().Services(leaseNamespace).Get(context.TODO(), leaseName, metav1.GetOptions{})
 	if err != nil {
 		log.Fatal(err)
