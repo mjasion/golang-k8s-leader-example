@@ -31,7 +31,7 @@ func main() {
 	renewalDeadline := env.GetInt64Default("RENEWAL_DEADLINE", 10)
 	retryPeriod := env.GetIntDefault("RETRY_PERIOD", 5)
 
-	clientset := getKubeConfig()
+	clientset := getKubeClient()
 	updatePodLabel(clientset)
 
 	leaderElectionConfig := leaderelection.LeaderElectionConfig{
@@ -110,7 +110,7 @@ func updatePodLabel(clientset kubernetes.Interface) {
 
 func onStartedLeading(ctx context.Context) {
 	log.Println("Became leader: ", os.Getenv("HOSTNAME"))
-	clientset := getKubeConfig()
+	clientset := getKubeClient()
 	updateServiceSelectorToCurrentPod(clientset)
 	go func() {
 		for {
@@ -146,7 +146,7 @@ func updateServiceSelectorToCurrentPod(clientset kubernetes.Interface) {
 	log.Printf("Updated Service: %s\n", updatedService.Name)
 }
 
-func getKubeConfig() *kubernetes.Clientset {
+func getKubeClient() *kubernetes.Clientset {
 	// Create a Kubernetes client using the current context
 	config, err := rest.InClusterConfig()
 	if err != nil {
