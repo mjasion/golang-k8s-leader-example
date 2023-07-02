@@ -1,0 +1,635 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: /bin/bash --rcfile /Users/marcin/.bashrc_terminalizer
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/marcin/git/github.com/mjasion/golang-k8s-leader-example
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+    LOCAL_RCFILE: /Users/marcin/.config/liquidpromptrc_terminalizer
+    SHLVL: 1
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 127
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 28
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: solid
+    title: null
+    style:
+      boxShadow: none
+      margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 263
+    content: "\e[?1034h\e[?1034h\e[?1034h"
+  - delay: 8
+    content: "\e[?1034h"
+  - delay: 8
+    content: "\e[?1034h\e[?1034h"
+  - delay: 24
+    content: "\e[?1034h\e[?1034h\e[?1034h\e[?1034h[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[35m1\e(B\e[m \e[1m#\e(B\e[m "
+  - delay: 454
+    content: k
+  - delay: 314
+    content: u
+  - delay: 196
+    content: b
+  - delay: 71
+    content: e
+  - delay: 175
+    content: c
+  - delay: 242
+    content: t
+  - delay: 128
+    content: l
+  - delay: 108
+    content: ' '
+  - delay: 120
+    content: g
+  - delay: 183
+    content: e
+  - delay: 113
+    content: t
+  - delay: 122
+    content: ' '
+  - delay: 217
+    content: p
+  - delay: 94
+    content: o
+  - delay: 92
+    content: d
+  - delay: 201
+    content: "\r\n"
+  - delay: 63
+    content: "NAME                                 READY   STATUS    RESTARTS   AGE\r\nk8s-leader-example-8b486c4c7-bqld2   1/1     Running   0          8s\r\nk8s-leader-example-8b486c4c7-j7bl8   1/1     Running   0          8s\r\n"
+  - delay: 36
+    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m "
+  - delay: 2726
+    content: k
+  - delay: 238
+    content: u
+  - delay: 149
+    content: b
+  - delay: 76
+    content: e
+  - delay: 185
+    content: c
+  - delay: 232
+    content: t
+  - delay: 99
+    content: l
+  - delay: 123
+    content: ' '
+  - delay: 285
+    content: g
+  - delay: 190
+    content: e
+  - delay: 155
+    content: t
+  - delay: 1045
+    content: ' '
+  - delay: 162
+    content: l
+  - delay: 39
+    content: e
+  - delay: 228
+    content: a
+  - delay: 26
+    content: s
+  - delay: 235
+    content: e
+  - delay: 136
+    content: "\r\n"
+  - delay: 70
+    content: "NAME                 HOLDER                               AGE\r\nk8s-leader-example   k8s-leader-example-8b486c4c7-bqld2   12s\r\n"
+  - delay: 35
+    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m "
+  - delay: 2154
+    content: k
+  - delay: 263
+    content: u
+  - delay: 143
+    content: b
+  - delay: 85
+    content: e
+  - delay: 192
+    content: c
+  - delay: 217
+    content: t
+  - delay: 82
+    content: l
+  - delay: 108
+    content: ' '
+  - delay: 2192
+    content: l
+  - delay: 233
+    content: o
+  - delay: 88
+    content: g
+  - delay: 296
+    content: s
+  - delay: 253
+    content: ' '
+  - delay: 1377
+    content: k8s-leader-example-8b486c4c7-j7bl8
+  - delay: 587
+    content: "\r\n"
+  - delay: 92
+    content: "[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.\r\n\r\n[GIN-debug] [WARNING] Running in \"debug\" mode. Switch to \"release\" mode in production.\r\n - using env:\texport GIN_MODE=release\r\n - using code:\tgin.SetMode(gin.ReleaseMode)\r\n\r\n[GIN-debug] GET    /                         --> main.rootPage.func1 (3 handlers)\r\n2023/06/25 13:40:23 Updated pod label: k8s-leader-example-8b486c4c7-j7bl8\r\n[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.\r\nPlease check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.\r\n[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default\r\n[GIN-debug] Listening and serving HTTP on :8080\r\nI0625 13:40:23.652032       1 leaderelection.go:245] attempting to acquire leader lease default/k8s-leader-example...\r\n"
+  - delay: 37
+    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m "
+  - delay: 2538
+    content: k
+  - delay: 251
+    content: u
+  - delay: 144
+    content: b
+  - delay: 72
+    content: e
+  - delay: 210
+    content: c
+  - delay: 232
+    content: t
+  - delay: 70
+    content: l
+  - delay: 127
+    content: ' '
+  - delay: 242
+    content: l
+  - delay: 493
+    content: o
+  - delay: 71
+    content: g
+  - delay: 237
+    content: s
+  - delay: 129
+    content: ' '
+  - delay: 200
+    content: k8s-leader-example-8b486c4c7-bqld2
+  - delay: 228
+    content: "\r\n"
+  - delay: 71
+    content: "[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.\r\n\r\n[GIN-debug] [WARNING] Running in \"debug\" mode. Switch to \"release\" mode in production.\r\n - using env:\texport GIN_MODE=release\r\n - using code:\tgin.SetMode(gin.ReleaseMode)\r\n\r\n[GIN-debug] GET    /                         --> main.rootPage.func1 (3 handlers)\r\n[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.\r\nPlease check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.\r\n[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default\r\n[GIN-debug] Listening and serving HTTP on :8080\r\n2023/06/25 13:40:23 Updated pod label: k8s-leader-example-8b486c4c7-bqld2\r\nI0625 13:40:23.033119       1 leaderelection.go:245] attempting to acquire leader lease default/k8s-leader-example...\r\nI0625 13:40:23.035569       1 leaderelection.go:255] successfully acquired lease default/k8s-leader-example\r\n2023/06/25 13:40:23 Became leader:  k8s-leader-example-8b486c4c7-bqld2\r\n2023/06/25 13:40:23 Updated Service: k8s-leader-example\r\n2023/06/25 13:40:23 Performing leader tasks...\r\n2023/06/25 13:40:24 Performing leader tasks...\r\n2023/06/25 13:40:25 Performing leader tasks...\r\n2023/06/25 13:40:26 Performing leader tasks...\r\n2023/06/25 13:40:27 Performing leader tasks...\r\n2023/06/25 13:40:28 Performing leader tasks...\r\n2023/06/25 13:40:29 Performing leader tasks...\r\n2023/06/25 13:40:30 Performing leader tasks...\r\n2023/06/25 13:40:31 Performing leader tasks...\r\n2023/06/25 13:40:32 Performing leader tasks...\r\n2023/06/25 13:40:33 Performing leader tasks...\r\n2023/06/25 13:40:34 Performing leader tasks...\r\n2023/06/25 13:40:35 Performing leader tasks...\r\n2023/06/25 13:40:36 Performing leader tasks...\r\n2023/06/25 13:40:37 Performing leader tasks...\r\n2023/06/25 13:40:38 Performing leader tasks...\r\n2023/06/25 13:40:39 Performing leader tasks...\r\n2023/06/25 13:40:40 Performing leader tasks...\r\n2023/06/25 13:40:41 Performing leader tasks...\r\n2023/06/25 13:40:42 Performing leader tasks...\r\n2023/06/25 13:40:43 Performing leader tasks...\r\n2023/06/25 13:40:44 Performing leader tasks...\r\n2023/06/25 13:40:45 Performing leader tasks...\r\n2023/06/25 13:40:46 Performing leader tasks...\r\n2023/06/25 13:40:47 Performing leader tasks...\r\n2023/06/25 13:40:48 Performing leader tasks...\r\n2023/06/25 13:40:49 Performing leader tasks...\r\n"
+  - delay: 38
+    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m "
+#  - delay: 821
+#    content: k
+#  - delay: 269
+#    content: u
+#  - delay: 170
+#    content: b
+#  - delay: 103
+#    content: e
+#  - delay: 203
+#    content: c
+#  - delay: 272
+#    content: t
+#  - delay: 82
+#    content: l
+#  - delay: 220
+#    content: ' '
+#  - delay: 4637
+#    content: "\b\b\b\b\b\b\b\b\e[K"
+  - delay: 491
+    content: c
+  - delay: 145
+    content: u
+  - delay: 169
+    content: r
+  - delay: 151
+    content: l
+  - delay: 231
+    content: ' '
+  - delay: 1019
+    content: h
+  - delay: 137
+    content: t
+  - delay: 160
+    content: t
+  - delay: 72
+    content: p
+  - delay: 352
+    content: ':'
+  - delay: 314
+    content: /
+  - delay: 171
+    content: /
+  - delay: 254
+    content: l
+  - delay: 165
+    content: o
+  - delay: 107
+    content: c
+  - delay: 99
+    content: a
+  - delay: 101
+    content: l
+  - delay: 328
+    content: s
+  - delay: 378
+    content: "\b\e[K"
+  - delay: 227
+    content: h
+  - delay: 167
+    content: o
+  - delay: 60
+    content: s
+  - delay: 234
+    content: t
+  - delay: 132
+    content: ' '
+  - delay: 214
+    content: '-'
+  - delay: 253
+    content: s
+  - delay: 128
+    content: ' '
+  - delay: 462
+    content: '|'
+  - delay: 108
+    content: ' '
+  - delay: 194
+    content: j
+  - delay: 123
+    content: q
+  - delay: 109
+    content: ' '
+  - delay: 187
+    content: .
+  - delay: 299
+    content: "\r\n"
+  - delay: 25
+    content: "\e[1;39m{\r\n  \e[0m\e[34;1m\"hostname\"\e[0m\e[1;39m: \e[0m\e[0;32m\"k8s-leader-example-8b486c4c7-bqld2\"\e[0m\e[1;39m\r\n\e[1;39m}\e[0m\r\n"
+  - delay: 38
+    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m "
+  - delay: 602
+    content: 'curl http://localhost -s | jq .'
+  - delay: 595
+    content: "\r\n"
+  - delay: 32
+    content: "\e[1;39m{\r\n  \e[0m\e[34;1m\"hostname\"\e[0m\e[1;39m: \e[0m\e[0;32m\"k8s-leader-example-8b486c4c7-bqld2\"\e[0m\e[1;39m\r\n\e[1;39m}\e[0m\r\n"
+  - delay: 38
+    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m "
+  - delay: 525
+    content: 'curl http://localhost -s | jq .'
+  - delay: 345
+    content: "\r\n"
+  - delay: 33
+    content: "\e[1;39m{\r\n  \e[0m\e[34;1m\"hostname\"\e[0m\e[1;39m: \e[0m\e[0;32m\"k8s-leader-example-8b486c4c7-bqld2\"\e[0m\e[1;39m\r\n\e[1;39m}\e[0m\r\n"
+  - delay: 38
+    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m "
+  - delay: 468
+    content: 'curl http://localhost -s | jq .'
+  - delay: 328
+    content: "\r\n"
+  - delay: 23
+    content: "\e[1;39m{\r\n  \e[0m\e[34;1m\"hostname\"\e[0m\e[1;39m: \e[0m\e[0;32m\"k8s-leader-example-8b486c4c7-bqld2\"\e[0m\e[1;39m\r\n\e[1;39m}\e[0m\r\n"
+  - delay: 32
+    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m "
+  - delay: 1309
+    content: k
+  - delay: 271
+    content: u
+  - delay: 192
+    content: b
+  - delay: 65
+    content: e
+  - delay: 209
+    content: c
+  - delay: 262
+    content: t
+  - delay: 144
+    content: l
+  - delay: 109
+    content: ' '
+  - delay: 1163
+    content: d
+  - delay: 122
+    content: e
+  - delay: 353
+    content: t
+  - delay: 366
+    content: "\b\e[K"
+  - delay: 158
+    content: l
+  - delay: 79
+    content: e
+  - delay: 188
+    content: t
+  - delay: 66
+    content: e
+  - delay: 135
+    content: ' '
+  - delay: 199
+    content: p
+  - delay: 74
+    content: o
+  - delay: 100
+    content: d
+  - delay: 68
+    content: ' '
+  - delay: 1719
+    content: k8s-leader-example-8b486c4c7-bqld2
+  - delay: 645
+    content: "\r\n"
+  - delay: 80
+    content: "pod \"k8s-leader-example-8b486c4c7-bqld2\" deleted\r\n"
+  - delay: 327
+    content: k
+  - delay: 510
+    content: u
+  - delay: 14
+    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m ku"
+  - delay: 236
+    content: b
+  - delay: 110
+    content: e
+  - delay: 216
+    content: c
+  - delay: 242
+    content: t
+  - delay: 226
+    content: l
+  - delay: 166
+    content: ' '
+  - delay: 525
+    content: g
+  - delay: 175
+    content: e
+  - delay: 149
+    content: t
+  - delay: 78
+    content: ' '
+  - delay: 167
+    content: l
+  - delay: 62
+    content: e
+  - delay: 177
+    content: a
+  - delay: 84
+    content: s
+  - delay: 151
+    content: e
+  - delay: 127
+    content: ' '
+  - delay: 157
+    content: '-'
+  - delay: 158
+    content: '-'
+  - delay: 57
+    content: w
+  - delay: 108
+    content: a
+  - delay: 854
+    content: t
+  - delay: 225
+    content: c
+  - delay: 84
+    content: h
+  - delay: 303
+    content: "\r\n"
+  - delay: 67
+    content: "NAME                 HOLDER                               AGE\r\nk8s-leader-example   k8s-leader-example-8b486c4c7-bqld2   57s\r\n"
+  - delay: 4928
+    content: "k8s-leader-example   k8s-leader-example-8b486c4c7-j7bl8   62s\r\n"
+  - delay: 5
+    content: "k8s-leader-example   k8s-leader-example-8b486c4c7-j7bl8   62s\r\n"
+  - delay: 1026
+    content: "k8s-leader-example   k8s-leader-example-8b486c4c7-j7bl8   63s\r\n"
+  - delay: 1024
+    content: "k8s-leader-example   k8s-leader-example-8b486c4c7-j7bl8   64s\r\n"
+  - delay: 515
+    content: ^C
+  - delay: 53
+    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m "
+  - delay: 349
+    content: k
+  - delay: 328
+    content: u
+  - delay: 186
+    content: b
+  - delay: 126
+    content: e
+  - delay: 216
+    content: c
+  - delay: 259
+    content: t
+  - delay: 125
+    content: l
+  - delay: 125
+    content: ' '
+  - delay: 1983
+    content: l
+  - delay: 167
+    content: o
+  - delay: 61
+    content: g
+  - delay: 227
+    content: s
+  - delay: 104
+    content: ' '
+  - delay: 1323
+    content: k8s-leader-example-8b486c4c7-j7bl8
+#  - delay: 465
+#    content: "\r\nbash: kubect: command not found\r\n"
+#  - delay: 50
+#    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m "
+#  - delay: 1306
+#    content: kubect logs k8s-leader-example-8b486c4c7-j7bl8
+#  - delay: 1343
+#    content: "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\e[K"
+#  - delay: 313
+#    content: "\b\b\b\b\b\e[K"
+#  - delay: 992
+#    content: l
+#  - delay: 181
+#    content: o
+#  - delay: 117
+#    content: g
+#  - delay: 275
+#    content: s
+#  - delay: 161
+#    content: ' '
+#  - delay: 481
+#    content: k8s-leader-example-8b486c4c7-j7bl8
+#  - delay: 541
+#    content: "\r\nbash: kubect: command not found\r\n"
+#  - delay: 49
+#    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m "
+#  - delay: 1255
+#    content: kubect logs k8s-leader-example-8b486c4c7-j7bl8
+#  - delay: 703
+#    content: "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\e[K"
+#  - delay: 213
+#    content: "\b\b\b\b\b\e[K"
+#  - delay: 654
+#    content: "\b\e[K"
+#  - delay: 226
+#    content: l
+#  - delay: 404
+#    content: "\b\e[K"
+#  - delay: 98
+#    content: s
+#  - delay: 384
+#    content: "\b\e[K"
+#  - delay: 186
+#    content: l
+#  - delay: 75
+#    content: ' '
+#  - delay: 242
+#    content: l
+#  - delay: 192
+#    content: o
+#  - delay: 84
+#    content: g
+#  - delay: 221
+#    content: s
+#  - delay: 179
+#    content: ' '
+#  - delay: 253
+#    content: k8s-leader-example-8b486c4c7-j7bl8
+  - delay: 153
+    content: "\r\n"
+  - delay: 85
+    content: "[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.\r\n\r\n[GIN-debug] [WARNING] Running in \"debug\" mode. Switch to \"release\" mode in production.\r\n - using env:\texport GIN_MODE=release\r\n - using code:\tgin.SetMode(gin.ReleaseMode)\r\n\r\n[GIN-debug] GET    /                         --> main.rootPage.func1 (3 handlers)\r\n2023/06/25 13:40:23 Updated pod label: k8s-leader-example-8b486c4c7-j7bl8\r\n[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.\r\nPlease check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.\r\n[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default\r\n[GIN-debug] Listening and serving HTTP on :8080\r\nI0625 13:40:23.652032       1 leaderelection.go:245] attempting to acquire leader lease default/k8s-leader-example...\r\nI0625 13:41:25.828955       1 leaderelection.go:255] successfully acquired lease default/k8s-leader-example\r\n2023/06/25 13:41:25 Became leader:  k8s-leader-example-8b486c4c7-j7bl8\r\n2023/06/25 13:41:25 Updated Service: k8s-leader-example\r\n2023/06/25 13:41:25 Performing leader tasks...\r\n2023/06/25 13:41:26 Performing leader tasks...\r\n2023/06/25 13:41:27 Performing leader tasks...\r\n2023/06/25 13:41:28 Performing leader tasks...\r\n2023/06/25 13:41:29 Performing leader tasks...\r\n2023/06/25 13:41:30 Performing leader tasks...\r\n2023/06/25 13:41:31 Performing leader tasks...\r\n2023/06/25 13:41:32 Performing leader tasks...\r\n2023/06/25 13:41:33 Performing leader tasks...\r\n2023/06/25 13:41:34 Performing leader tasks...\r\n2023/06/25 13:41:35 Performing leader tasks...\r\n2023/06/25 13:41:36 Performing leader tasks...\r\n2023/06/25 13:41:37 Performing leader tasks...\r\n2023/06/25 13:41:38 Performing leader tasks...\r\n2023/06/25 13:41:39 Performing leader tasks...\r\n2023/06/25 13:41:40 Performing leader tasks...\r\n2023/06/25 13:41:41 Performing leader tasks...\r\n2023/06/25 13:41:42 Performing leader tasks...\r\n2023/06/25 13:41:43 Performing leader tasks...\r\n2023/06/25 13:41:44 Performing leader tasks...\r\n"
+  - delay: 36
+    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m "
+#  - delay: 2253
+#    content: c
+#  - delay: 140
+#    content: u
+#  - delay: 144
+#    content: r
+#  - delay: 166
+#    content: l
+#  - delay: 484
+#    content: "\b\b\b\bkubectl logs k8s-leader-example-8b486c4c7-j7bl8"
+#  - delay: 158
+#    content: "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\e[1P\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C"
+#  - delay: 181
+#    content: "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\e[21Pl get lease --watch"
+#  - delay: 391
+#    content: "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\bdelete pod k8s-leader-example-8b486c4c7-bqld2"
+  - delay: 446
+    content: "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\e[22Pcurl http://localhost -s | jq ."
+  - delay: 1873
+    content: "\r\n"
+  - delay: 31
+    content: "\e[1;39m{\r\n  \e[0m\e[34;1m\"hostname\"\e[0m\e[1;39m: \e[0m\e[0;32m\"k8s-leader-example-8b486c4c7-j7bl8\"\e[0m\e[1;39m\r\n\e[1;39m}\e[0m\r\n"
+  - delay: 39
+    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m "
+  - delay: 859
+    content: 'curl http://localhost -s | jq .'
+  - delay: 1495
+    content: "\r\n"
+  - delay: 31
+    content: "\e[1;39m{\r\n  \e[0m\e[34;1m\"hostname\"\e[0m\e[1;39m: \e[0m\e[0;32m\"k8s-leader-example-8b486c4c7-j7bl8\"\e[0m\e[1;39m\r\n\e[1;39m}\e[0m\r\n"
+  - delay: 38
+    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m "
+#  - delay: 1125
+#    content: 'curl http://localhost -s | jq .'
+#  - delay: 210
+#    content: "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\bkubectl logs k8s-leader-example-8b486c4c7-j7bl8"
+#  - delay: 1710
+#    content: "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\e[1P\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C"
+#  - delay: 3626
+#    content: "\r\n"
+#  - delay: 50
+#    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m "
+#  - delay: 16
+#    content: "\r\n"
+#  - delay: 35
+#    content: "[\e[1mmarcin\e(B\e[m\e[32m:\e(B\e[m\e(B\e[m~\e(B\e[m\e[90m/\e(B\e[mgit\e(B\e[m\e[90m/\e(B\e[mgithub.com\e(B\e[m\e[90m/\e(B\e[mmjasion\e(B\e[m\e[90m/\e(B\e[m\e[1mgolang-k8s-leader-example\e(B\e[m] \e[1m#\e(B\e[m "
+  - delay: 10000
+    content: "exit\r\n"
